@@ -1,7 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Trash2, Edit } from "lucide-react";
+import { Trash2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import {
   AlertDialog,
@@ -26,9 +26,9 @@ interface TodoCardProps {
 }
 
 const statusConfig: Record<TodoStatus, { label: string; className: string }> = {
-  todo: { label: "À faire", className: "bg-status-todo text-white" },
-  in_progress: { label: "En cours", className: "bg-status-in-progress text-white" },
-  done: { label: "Terminé", className: "bg-status-done text-white" },
+  todo: { label: "To Do", className: "bg-status-todo text-white" },
+  in_progress: { label: "In Progress", className: "bg-status-in-progress text-white" },
+  done: { label: "Done", className: "bg-status-done text-white" },
 };
 
 export const TodoCard = ({ id, title, description, status, onDelete }: TodoCardProps) => {
@@ -36,7 +36,10 @@ export const TodoCard = ({ id, title, description, status, onDelete }: TodoCardP
   const statusInfo = statusConfig[status];
 
   return (
-    <Card className="transition-all hover:shadow-lg">
+    <Card 
+      className="transition-all hover:shadow-lg cursor-pointer"
+      onClick={() => navigate(`/edit/${id}`)}
+    >
       <CardContent className="p-6">
         <div className="flex justify-between items-start mb-3">
           <h3 className="font-semibold text-lg text-foreground">{title}</h3>
@@ -48,34 +51,29 @@ export const TodoCard = ({ id, title, description, status, onDelete }: TodoCardP
         )}
         
         <div className="flex gap-2 justify-end">
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={() => navigate(`/edit/${id}`)}
-            className="gap-2"
-          >
-            <Edit className="w-4 h-4" />
-            Modifier
-          </Button>
-          
           <AlertDialog>
             <AlertDialogTrigger asChild>
-              <Button variant="destructive" size="sm" className="gap-2">
+              <Button 
+                variant="destructive" 
+                size="sm" 
+                className="gap-2"
+                onClick={(e) => e.stopPropagation()}
+              >
                 <Trash2 className="w-4 h-4" />
-                Supprimer
+                Delete
               </Button>
             </AlertDialogTrigger>
-            <AlertDialogContent>
+            <AlertDialogContent onClick={(e) => e.stopPropagation()}>
               <AlertDialogHeader>
-                <AlertDialogTitle>Êtes-vous sûr ?</AlertDialogTitle>
+                <AlertDialogTitle>Are you sure?</AlertDialogTitle>
                 <AlertDialogDescription>
-                  Cette action est irréversible. Cette tâche sera définitivement supprimée.
+                  This action cannot be undone. This task will be permanently deleted.
                 </AlertDialogDescription>
               </AlertDialogHeader>
               <AlertDialogFooter>
-                <AlertDialogCancel>Annuler</AlertDialogCancel>
+                <AlertDialogCancel>Cancel</AlertDialogCancel>
                 <AlertDialogAction onClick={() => onDelete(id)}>
-                  Supprimer
+                  Delete
                 </AlertDialogAction>
               </AlertDialogFooter>
             </AlertDialogContent>

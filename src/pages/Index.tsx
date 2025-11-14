@@ -57,8 +57,8 @@ const Index = () => {
     } catch (error: any) {
       toast({
         variant: "destructive",
-        title: "Erreur",
-        description: "Impossible de charger les tâches",
+        title: "Error",
+        description: "Unable to load tasks",
       });
     } finally {
       setLoading(false);
@@ -73,14 +73,14 @@ const Index = () => {
 
       setTodos(todos.filter((todo) => todo.id !== id));
       toast({
-        title: "Tâche supprimée",
-        description: "La tâche a été supprimée avec succès",
+        title: "Task deleted",
+        description: "The task has been successfully deleted",
       });
     } catch (error: any) {
       toast({
         variant: "destructive",
-        title: "Erreur",
-        description: "Impossible de supprimer la tâche",
+        title: "Error",
+        description: "Unable to delete task",
       });
     }
   };
@@ -88,8 +88,8 @@ const Index = () => {
   const handleLogout = async () => {
     await supabase.auth.signOut();
     toast({
-      title: "Déconnexion",
-      description: "Vous avez été déconnecté avec succès",
+      title: "Logged out",
+      description: "You have been successfully logged out",
     });
   };
 
@@ -101,10 +101,10 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <header className="border-b bg-card">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-foreground">Mes Tâches</h1>
+          <h1 className="text-2xl font-bold text-foreground">My Tasks</h1>
           <Button variant="ghost" onClick={handleLogout} className="gap-2">
             <LogOut className="w-4 h-4" />
-            Déconnexion
+            Logout
           </Button>
         </div>
       </header>
@@ -119,10 +119,10 @@ const Index = () => {
         ) : todos.length === 0 ? (
           <div className="text-center py-16">
             <p className="text-muted-foreground text-lg mb-4">
-              Aucune tâche pour le moment
+              No tasks yet
             </p>
             <p className="text-muted-foreground">
-              Cliquez sur le bouton + pour ajouter votre première tâche
+              Click the + button to add your first task
             </p>
           </div>
         ) : (
