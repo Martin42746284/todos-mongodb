@@ -49,14 +49,14 @@ const AddTodo = () => {
       if (error) throw error;
 
       toast({
-        title: "Tâche créée",
-        description: "Votre tâche a été créée avec succès",
+        title: "Task created",
+        description: "Your task has been successfully created",
       });
       navigate("/");
     } catch (error: any) {
       toast({
         variant: "destructive",
-        title: "Erreur",
+        title: "Error",
         description: error.message,
       });
     } finally {
@@ -70,7 +70,7 @@ const AddTodo = () => {
         <div className="container mx-auto px-4 py-4">
           <Button variant="ghost" onClick={() => navigate("/")} className="gap-2">
             <ArrowLeft className="w-4 h-4" />
-            Retour
+            Back
           </Button>
         </div>
       </header>
@@ -78,15 +78,15 @@ const AddTodo = () => {
       <main className="container mx-auto px-4 py-8 max-w-2xl">
         <Card>
           <CardHeader>
-            <CardTitle>Nouvelle tâche</CardTitle>
+            <CardTitle>New Task</CardTitle>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="space-y-2">
-                <Label htmlFor="title">Titre *</Label>
+                <Label htmlFor="title">Title *</Label>
                 <Input
                   id="title"
-                  placeholder="Titre de la tâche"
+                  placeholder="Task title"
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
                   required
@@ -98,7 +98,7 @@ const AddTodo = () => {
                 <Label htmlFor="description">Description</Label>
                 <Textarea
                   id="description"
-                  placeholder="Description de la tâche (optionnel)"
+                  placeholder="Task description (optional)"
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
                   rows={5}
@@ -107,15 +107,15 @@ const AddTodo = () => {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="status">Statut</Label>
+                <Label htmlFor="status">Status</Label>
                 <Select value={status} onValueChange={(value: any) => setStatus(value)}>
                   <SelectTrigger>
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="todo">À faire</SelectItem>
-                    <SelectItem value="in_progress">En cours</SelectItem>
-                    <SelectItem value="done">Terminé</SelectItem>
+                    <SelectItem value="todo">To Do</SelectItem>
+                    <SelectItem value="in_progress">In Progress</SelectItem>
+                    <SelectItem value="done">Done</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -127,11 +127,11 @@ const AddTodo = () => {
                   onClick={() => navigate("/")}
                   className="flex-1"
                 >
-                  Annuler
+                  Cancel
                 </Button>
                 <Button type="submit" className="flex-1" disabled={loading}>
                   {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                  Créer la tâche
+                  Create Task
                 </Button>
               </div>
             </form>

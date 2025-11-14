@@ -26,8 +26,8 @@ export const AuthForm = () => {
         });
         if (error) throw error;
         toast({
-          title: "Connexion réussie",
-          description: "Bienvenue !",
+          title: "Login successful",
+          description: "Welcome!",
         });
       } else {
         const { error } = await supabase.auth.signUp({
@@ -36,14 +36,14 @@ export const AuthForm = () => {
         });
         if (error) throw error;
         toast({
-          title: "Inscription réussie",
-          description: "Vous pouvez maintenant vous connecter.",
+          title: "Sign up successful",
+          description: "You can now log in.",
         });
       }
     } catch (error: any) {
       toast({
         variant: "destructive",
-        title: "Erreur",
+        title: "Error",
         description: error.message,
       });
     } finally {
@@ -55,11 +55,11 @@ export const AuthForm = () => {
     <div className="min-h-screen flex items-center justify-center bg-background p-4">
       <Card className="w-full max-w-md">
         <CardHeader>
-          <CardTitle>{isLogin ? "Connexion" : "Inscription"}</CardTitle>
+          <CardTitle>{isLogin ? "Login" : "Sign Up"}</CardTitle>
           <CardDescription>
             {isLogin
-              ? "Connectez-vous pour accéder à vos tâches"
-              : "Créez un compte pour commencer"}
+              ? "Log in to access your tasks"
+              : "Create an account to get started"}
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -69,14 +69,14 @@ export const AuthForm = () => {
               <Input
                 id="email"
                 type="email"
-                placeholder="votre@email.com"
+                placeholder="your@email.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="password">Mot de passe</Label>
+              <Label htmlFor="password">Password</Label>
               <Input
                 id="password"
                 type="password"
@@ -89,7 +89,7 @@ export const AuthForm = () => {
             </div>
             <Button type="submit" className="w-full" disabled={loading}>
               {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-              {isLogin ? "Se connecter" : "S'inscrire"}
+              {isLogin ? "Log in" : "Sign up"}
             </Button>
             <Button
               type="button"
@@ -97,7 +97,7 @@ export const AuthForm = () => {
               className="w-full"
               onClick={() => setIsLogin(!isLogin)}
             >
-              {isLogin ? "Pas de compte ? S'inscrire" : "Déjà un compte ? Se connecter"}
+              {isLogin ? "No account? Sign up" : "Already have an account? Log in"}
             </Button>
           </form>
         </CardContent>
