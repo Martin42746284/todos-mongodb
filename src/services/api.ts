@@ -1,4 +1,3 @@
-import { LogOut } from 'lucide-react';
 import axiosInstance from './axios';
 
 export interface Todo {
@@ -7,7 +6,7 @@ export interface Todo {
   description: string;
   status: 'todo' | 'in progress' | 'done';
   userId?: String,
-createdAt?: string;
+  createdAt?: string;
   updatedAt?: string;
 }
 
