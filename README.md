@@ -1,73 +1,124 @@
-# Welcome to your Lovable project
+# 📝 Gestionnaire de Tâches - Todo App
 
-## Project info
+Une application moderne de gestion de tâches construite avec React, TypeScript, Node.js, Express et MongoDB. Interface fluide et intuitive avec authentification sécurisée.
 
-**URL**: https://lovable.dev/projects/d12aca48-2471-43b9-aa14-04c363e5020d
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)
+![React](https://img.shields.io/badge/React-18-blue)
+![Node.js](https://img.shields.io/badge/Node.js-20-green)
 
-## How can I edit this code?
+## ✨ Fonctionnalités
 
-There are several ways of editing your application.
+- 🔐 **Authentification sécurisée** : Inscription et connexion avec JWT
+- ✅ **Gestion de tâches** : Créer, modifier, supprimer et filtrer vos tâches
+- 🎨 **Interface moderne** : Design fluide avec Tailwind CSS et shadcn/ui
+- 📊 **Statistiques** : Vue d'ensemble de vos tâches par statut
+- 🔄 **Changement rapide de statut** : Dropdown intuitif pour mettre à jour le statut
+- 👤 **Multi-utilisateurs** : Chaque utilisateur a ses propres tâches
+- 📱 **Responsive** : Fonctionne sur desktop, tablette et mobile
+- 🎯 **Filtrage avancé** : Filtrer par statut (À faire, En cours, Terminé)
 
-**Use Lovable**
+## 🛠️ Stack Technique
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/d12aca48-2471-43b9-aa14-04c363e5020d) and start prompting.
+### Frontend
+- **Framework**: React 18 + TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS + shadcn/ui
+- **Routing**: React Router v6
+- **HTTP Client**: Axios
+- **State Management**: React Hooks (useState, useEffect)
+- **Icons**: Lucide React
 
-Changes made via Lovable will be committed automatically to this repo.
+### Backend
+- **Runtime**: Node.js + Express.js
+- **Language**: TypeScript
+- **Database**: MongoDB + Mongoose
+- **Authentication**: JWT (jsonwebtoken)
+- **Password Hashing**: bcryptjs
+- **Validation**: Express middleware
 
-**Use your preferred IDE**
+## 📦 Installation
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Prérequis
+- Node.js 18+ 
+- MongoDB (local ou Atlas)
+- npm ou yarn
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### 1. Cloner le repository
 
-Follow these steps:
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## 🔌 API Endpoints
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### Authentication
+| Endpoint | Méthode | Description |
+|----------|---------|-------------|
+| `/api/auth/register` | POST | Inscription d'un nouvel utilisateur |
+| `/api/auth/login` | POST | Connexion utilisateur |
 
-# Step 3: Install the necessary dependencies.
-npm i
+### Todos (Authentification requise)
+| Endpoint | Méthode | Description |
+|----------|---------|-------------|
+| `/api/todos` | GET | Récupérer toutes les tâches de l'utilisateur |
+| `/api/todos` | POST | Créer une nouvelle tâche |
+| `/api/todos/:id` | GET | Récupérer une tâche spécifique |
+| `/api/todos/:id` | PUT | Mettre à jour une tâche |
+| `/api/todos/:id` | DELETE | Supprimer une tâche |
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+### Exemple de requête
 
-**Edit a file directly in GitHub**
+**Créer une tâche**
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 🎨 Captures d'écran
 
-**Use GitHub Codespaces**
+### Page d'authentification
+Interface moderne avec gradient et animations
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Dashboard
+Vue d'ensemble avec statistiques et filtres
 
-## What technologies are used for this project?
+### Gestion des tâches
+Cartes avec changement de statut rapide via dropdown
 
-This project is built with:
+## 🚀 Déploiement
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Backend (exemple avec Render)
+1. Créer un compte sur [Render](https://render.com)
+2. Connecter votre repository GitHub
+3. Configurer les variables d'environnement
+4. Déployer
 
-## How can I deploy this project?
+### Frontend (exemple avec Vercel)
+1. Créer un compte sur [Vercel](https://vercel.com)
+2. Importer votre projet depuis GitHub
+3. Configurer la variable `VITE_API_URL`
+4. Déployer
 
-Simply open [Lovable](https://lovable.dev/projects/d12aca48-2471-43b9-aa14-04c363e5020d) and click on Share -> Publish.
+## 🤝 Contribution
 
-## Can I connect a custom domain to my Lovable project?
+Les contributions sont les bienvenues ! Pour contribuer :
 
-Yes, you can!
+1. Forkez le projet
+2. Créez une branche (`git checkout -b feature/AmazingFeature`)
+3. Committez vos changements (`git commit -m 'Add some AmazingFeature'`)
+4. Pushez vers la branche (`git push origin feature/AmazingFeature`)
+5. Ouvrez une Pull Request
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 📝 Licence
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
+
+## 👨‍💻 Auteur
+
+**Martin Manampisoa**
+- GitHub: [@Martin42746284](https://github.com/Martin42746284)
+- Email: martin.manampisoa42@gmail.com
+
+## 🙏 Remerciements
+
+- [shadcn/ui](https://ui.shadcn.com/) pour les composants UI
+- [Lucide](https://lucide.dev/) pour les icônes
+- [Tailwind CSS](https://tailwindcss.com/) pour le styling
+
+---
+
+⭐ Si ce projet vous a été utile, n'hésitez pas à lui donner une étoile !
