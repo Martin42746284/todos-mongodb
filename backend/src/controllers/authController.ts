@@ -58,3 +58,10 @@ export const login = async (req: Request, res: Response) => {
     res.status(500).json({ error: 'Erreur lors de la connexion.' });
   }
 };
+
+//Logout user (optional, as JWT is stateless)
+export const logout = async (_req: Request, res: Response) => {
+  // Since JWT is stateless, logout can be handled on the client side by deleting the token.
+  res.json({ message: 'Déconnexion réussie.' });
+};
+

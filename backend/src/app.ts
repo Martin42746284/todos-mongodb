@@ -4,7 +4,13 @@ import todoRoutes from './routes/todoRoutes';
 import authRoutes from './routes/authRoutes';
 
 const app = express();
-app.use(cors());
+
+// Configure CORS pour autoriser ton frontend
+app.use(cors({
+  origin: ['http://localhost:8080'], // Ajoute ton URL frontend
+  credentials: true
+}));
+
 app.use(express.json());
 
 app.use('/api', todoRoutes);
